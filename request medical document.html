@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="request medical document.css" />
+  <title>Barangay Clinic Appointment</title>
+</head>
+<body>
+  <div class="container">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <img src="newimus.png" alt="Barangay Logo" class="logo" />
+      <h2>BARANGAY CLINIC<br>ONLINE APPOINTMENT SYSTEM</h2>
+      <p>Imus, Cavite</p>
+      <nav>
+        <button onclick="navigateTo('home.html')">HOME</button>
+        <button onclick="navigateTo('update-profile.html')">UPDATE PROFILE</button>
+        <button onclick="navigateTo('request for new consultation.html')">REQUEST FOR NEW CONSULTATION</button>
+        <button onclick="navigateTo('view-consultation.html')">VIEW CONSULTATION RESULT</button>
+        <button onclick="navigateTo('appointments.html')">VIEW APPOINTMENTS</button>
+        <button onclick="navigateTo('request medical document.html')">REQUEST MEDICAL DOCUMENTS</button>
+        <button onclick="navigateTo('change-password.html')">CHANGE PASSWORD</button>
+        <button onclick="navigateTo('index.html')">LOGOUT</button>
+        <button onclick="navigateTo('broad-consent.html')">VIEW BROAD CONSENT</button>
+        <button onclick="navigateTo('privacy-notice.html')">VIEW DATA PRIVACY NOTICE</button>
+      </nav>
+    </aside>
+
+
+    <main class="content">
+      <h2>REQUEST MEDICAL DOCUMENTS</h2>
+      <button id="newRequestBtn">New Request</button>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Request Ref No.</th>
+              <th>Date of Requested</th>
+              <th>Type of Record</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#01-01282025</td>
+              <td>02-15-2025</td>
+              <td>Immunization</td>
+              <td>Pending</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="request medical document.js"></script>
+</body>
+</html>

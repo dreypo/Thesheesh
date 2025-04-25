@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="home.css" />
+  <title>Barangay Clinic Appointment</title>
+</head>
+<body>
+  <div class="container">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <img src="newimus.png" alt="Barangay Logo" class="logo" />
+      <h2>BARANGAY CLINIC<br>ONLINE APPOINTMENT SYSTEM</h2>
+      <p>Imus, Cavite</p>
+      <nav>
+        <button onclick="navigateTo('home.html')">HOME</button>
+        <button onclick="navigateTo('update-profile.html')">UPDATE PROFILE</button>
+        <button onclick="navigateTo('request for new consultation.html')">REQUEST FOR NEW CONSULTATION</button>
+        <button onclick="navigateTo('view-consultation.html')">VIEW CONSULTATION RESULT</button>
+        <button onclick="navigateTo('appointments.html')">VIEW APPOINTMENTS</button>
+        <button onclick="navigateTo('request medical document.html')">REQUEST MEDICAL DOCUMENTS</button>
+        <button onclick="navigateTo('change-password.html')">CHANGE PASSWORD</button>
+        <button onclick="navigateTo('index.html')">LOGOUT</button>
+        <button onclick="navigateTo('broad-consent.html')">VIEW BROAD CONSENT</button>
+        <button onclick="navigateTo('privacy-notice.html')">VIEW DATA PRIVACY NOTICE</button>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <section class="welcome">
+        <h3>Hello, JAYSON POGI</h3>
+        <div class="help-box">
+          <p><strong>Ano ang maitutulong ko sa iyo?</strong><br>Ang button ay maayos na nakalagay sa gilid, kaya madali mong maa-access ang kailangan mo sa isang pindot lang.</p>
+          <p><strong>What can I help you?</strong><br>The button is conveniently placed on the side, allowing you to easily access what you need with a single click.</p>
+        </div>
+      </section>
+
+      <section class="appointment-box">
+        <h4>Ang iyong susunod na appointment (Your next appointment)</h4>
+        <div class="appointment-info">
+          <p><strong>Appointment Reference Number:</strong> <span id="refNum">N/A</span></p>
+          <p><strong>Time Block:</strong> <span id="timeBlock">N/A</span></p>
+          <p><strong>Consultation Date:</strong> <span id="date">N/A</span></p>
+          <p><strong>Main Complaint:</strong> <span id="complaint">N/A</span></p>
+        </div>
+        <button class="book-btn" onclick="bookNow()">Book Now!</button>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    function navigateTo(page) {
+      window.location.href = page;
+    }
+
+    function logout() {
+      alert("Logging out...");
+      // Add logout logic here
+    }
+
+    function bookNow() {
+      alert("Redirecting to booking page...");
+      // Add booking logic here
+    }
+  </script>
+</body>
+</html>

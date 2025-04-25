@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="general concern.css" />
+  <title>Barangay Clinic Appointment</title>
+</head>
+<body>
+  <div class="container">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <img src="newimus.png" alt="Barangay Logo" class="logo" />
+      <h2>BARANGAY CLINIC ONLINE APPOINTMENT SYSTEM</h2>
+      <p>Imus, Cavite</p>
+      <nav>
+        <button onclick="navigateTo('home.html')">HOME</button>
+        <button onclick="navigateTo('update-profile.html')">UPDATE PROFILE</button>
+        <button onclick="navigateTo('request for new consultation.html')">REQUEST FOR NEW CONSULTATION</button>
+        <button onclick="navigateTo('view-consultation.html')">VIEW CONSULTATION RESULT</button>
+        <button onclick="navigateTo('appointments.html')">VIEW APPOINTMENTS</button>
+        <button onclick="navigateTo('request medical document.html')">REQUEST MEDICAL DOCUMENTS</button>
+        <button onclick="navigateTo('change-password.html')">CHANGE PASSWORD</button>
+        <button onclick="navigateTo('index.html')">LOGOUT</button>
+        <button onclick="navigateTo('broad-consent.html')">VIEW BROAD CONSENT</button>
+        <button onclick="navigateTo('privacy-notice.html')">VIEW DATA PRIVACY NOTICE</button>
+      </nav>
+    </aside>
+
+    <!-- Main -->
+    <main class="main-content">
+      <button class="close-btn" onclick="navigateTo('home.html')">✕</button>
+      <h2>REQUEST FOR NEW CONSULTATION</h2>
+
+      <!-- General Concern Box -->
+      <div class="general-box">
+        <div class="title">General Concern</div>
+        <div class="concern-list">
+          <ul>
+            <li>Check up for Elders</li>
+            <li>Sick Check-up</li>
+            <li>Kids Medication</li>
+            <li>Immunization</li>
+          </ul>
+          <ul>
+            <li>Family Planning</li>
+            <li>Pap Smear</li>
+            <li>Pregnant Check-up</li>
+            <li>Prenatal</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <form class="consultation-form" id="consultationForm">
+        <div class="form-group">
+          <label for="complaint"><strong>Ano ang karamdaman na gusto mong ipakonsulta?*</strong><br><span>(What is your main complaint?)</span></label>
+          <input type="text" id="complaint" placeholder="Immunization" required>
+        </div>
+
+        <div class="form-group">
+          <label for="details"><strong>Kagdagang detalye*</strong><br><span>(Other details)</span></label>
+          <textarea id="details" placeholder="Magbigay pa ng mga info dito." required></textarea>
+        </div>
+
+        <div class="form-group time-selection">
+          <label><strong>Gustong block ng araw at oras para sa konsultasyon*</strong><br><span>(Preferred date and time block for consultation)</span></label>
+          <div class="date-time">
+            <div>
+              <label for="appointment-date">Select Date</label>
+              <input type="date" id="appointment-date" required>
+            </div>
+            <div id="time-slots" class="time-slots"></div>
+          </div>
+        </div>
+
+        <button type="submit" class="save-btn">Submit</button>
+      </form>
+    </main>
+  </div>
+
+  <script>
+    // NAVIGATE
+    function navigateTo(url) {
+      window.location.href = url;
+    }
+
+    // TIME SLOTS
+    const bookedTimeSlots = {
+      "2025-01-15": ["08:00 – 08:20 AM", "09:00 – 09:20 AM"],
+      "2025-01-16": ["09:40 – 10:00 AM"]
+    };
+
+    const allSlots = [
+      "08:00 – 08:20 AM",
+      "08:20 – 08:40 AM",
+      "08:40 – 09:00 AM",
+      "09:00 – 09:20 AM",
+      "09:20 – 09:40 AM",
+      "09:40 – 10:00 AM"
+    ];
+
+    const dateInput = document.getElementById("appointment-date");
+    const timeSlotsContainer = document.getElementById("time-slots");
+    let selectedSlot = "";
+
+    dateInput.addEventListener("change", () => {
+      const selectedDate = dateInput.value;
+      renderSlots(selectedDate);
+    });
+
+    function renderSlots(date) {
+      timeSlotsContainer.innerHTML = "";
+      const booked = bookedTimeSlots[date] || [];
+
+      allSlots.forEach(slot => {
+        const div = document.createElement("div");
+        div.textContent = slot;
+        div.classList.add("slot");
+
+        if (booked.includes(slot)) {
+          div.classList.add("red");
+        } else {
+          div.classList.add("green");
+          div.onclick = () => {
+            selectedSlot = slot;
+            document.querySelectorAll(".slot.green").forEach(s => s.classList.remove("selected"));
+            div.classList.add("selected");
+          };
+        }
+
+        timeSlotsContainer.appendChild(div);
+      });
+    }
+
+    // FORM SUBMIT
+    const form = document.getElementById("consultationForm");
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const complaint = document.getElementById("complaint").value;
+      const details = document.getElementById("details").value;
+      const date = document.getElementById("appointment-date").value;
+
+      if (!selectedSlot) {
+        alert("Please select a time slot.");
+        return;
+      }
+
+      // Simulate saving
+      console.log("CONSULTATION FORM SUBMITTED:");
+      console.log("Complaint:", complaint);
+      console.log("Details:", details);
+      console.log("Date:", date);
+      console.log("Time Slot:", selectedSlot);
+
+      // Redirect
+      alert("Your consultation request has been submitted.");
+      navigateTo('home.html');
+    });
+
+    function navigateTo(page) {
+      window.location.href = page;
+    }
+
+    function logout() {
+      alert("Logging out...");
+      // Add logout logic here
+    }
+
+    function bookNow() {
+      alert("Redirecting to booking page...");
+      // Add booking logic here
+    }
+      function goToGeneralConcern() {
+        window.location.href = "general concern.html"; // Change this to your actual page
+      }
+  </script>
+</body>
+</html>

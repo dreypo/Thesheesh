@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>3D Login/Register</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-page">
+  <!-- LOGIN SECTION -->
+  <div id="loginSection">
+    <div class="switch-role">
+      <button id="userBtn" class="active">User</button>
+      <button id="adminBtn">Admin</button>
+    </div>
+
+    <div class="scene">
+      <div class="card-container" id="card">
+        <!-- Login Form -->
+        <div class="form-card front-card" id="loginForm">
+          <img src="newimus.png" alt="Barangay Logo" class="center" style="width: 50%;"/> 
+          <h2 id="loginTitle">User Login</h2>
+          <input type="text" placeholder="Username" />
+          <input type="password" placeholder="Password" />
+          <button>Login</button>
+          <div class="link" onclick="flipToRegister()">Register</div>
+          <div class="link" onclick="flipToForgot()">Forgot Password?</div>
+        </div>
+
+        <!-- Register Form -->
+        <div class="form-card back-card" id="registerForm">
+          <h2>Register</h2>
+          <input type="text" placeholder="Username" />
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <button>Register</button>
+          <div class="link" onclick="flipToLogin()">Back to Login</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forgot Password Overlay -->
+    <div id="forgotOverlay" style="display: none;">
+      <div class="forgot-box">
+        <h3>Forgot Password</h3>
+        <input type="email" placeholder="Enter your email" />
+        <button>Send Reset Link</button>
+        <div class="link" onclick="closeForgot()">Close</div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Forgot Password Overlay -->
+    <div id="forgotOverlay" style="display: none;">
+      <div class="forgot-box">
+        <h3>Forgot Password</h3>
+        <input type="email" placeholder="Enter your email" />
+        <button>Send Reset Link</button>
+        <div class="link" onclick="closeForgot()">Close</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- USER DASHBOARD -->
+  <div id="dashboardSection" class="container" style="display: none;">
+    <aside class="sidebar">
+      <img src="newimus.png" alt="Barangay Logo" class="logo" />
+      <h2>BARANGAY CLINIC<br>ONLINE APPOINTMENT SYSTEM</h2>
+      <p>Imus, Cavite</p>
+      <nav>
+        <button onclick="navigateTo('home.html')">HOME</button>
+        <button onclick="navigateTo('update-profile.html')">UPDATE PROFILE</button>
+        <button onclick="navigateTo('request for new consultation.html')">REQUEST FOR NEW CONSULTATION</button>
+        <button onclick="navigateTo('view-consultation.html')">VIEW CONSULTATION RESULT</button>
+        <button onclick="navigateTo('appointments.html')">VIEW APPOINTMENTS</button>
+        <button onclick="navigateTo('request medical document.html')">REQUEST MEDICAL DOCUMENTS</button>
+        <button onclick="navigateTo('change-password.html')">CHANGE PASSWORD</button>
+        <button onclick="navigateTo('index.html')">LOGOUT</button>
+        <button onclick="navigateTo('broad-consent.html')">VIEW BROAD CONSENT</button>
+        <button onclick="navigateTo('privacy-notice.html')">VIEW DATA PRIVACY NOTICE</button>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <section class="welcome">
+        <h3>Hello, JAYSON POGI</h3>
+        <div class="help-box">
+          <p><strong>Ano ang maitutulong ko sa iyo?</strong><br>Ang button ay maayos na nakalagay sa gilid, kaya madali mong maa-access ang kailangan mo sa isang pindot lang.</p>
+          <p><strong>What can I help you?</strong><br>The button is conveniently placed on the side, allowing you to easily access what you need with a single click.</p>
+        </div>
+      </section>
+
+      <section class="appointment-box">
+        <h4>Ang iyong susunod na appointment (Your next appointment)</h4>
+        <div class="appointment-info">
+          <p><strong>Appointment Reference Number:</strong> N/A</p>
+          <p><strong>Time Block:</strong> N/A</p>
+          <p><strong>Consultation Date:</strong> N/A</p>
+          <p><strong>Main Complaint:</strong> N/A</p>
+        </div>
+        <button class="book-btn">Book Now!</button>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

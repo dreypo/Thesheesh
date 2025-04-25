@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="appointment.css" />
+  <title>Barangay Clinic Appointment</title>
+</head>
+<body>
+    <div class="container">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <img src="newimus.png" alt="Barangay Logo" class="logo" />
+        <h2>BARANGAY CLINIC ONLINE APPOINTMENT SYSTEM</h2>
+        <p>Imus, Cavite</p>
+        <nav>
+          <button onclick="navigateTo('home.html')">HOME</button>
+          <button onclick="navigateTo('update-profile.html')">UPDATE PROFILE</button>
+          <button onclick="navigateTo('request for new consultation.html')">REQUEST FOR NEW CONSULTATION</button>
+          <button onclick="navigateTo('view-consultation.html')">VIEW CONSULTATION RESULT</button>
+          <button onclick="navigateTo('appointments.html')">VIEW APPOINTMENTS</button>
+          <button onclick="navigateTo('request medical document.html')">REQUEST MEDICAL DOCUMENTS</button>
+          <button onclick="navigateTo('change-password.html')">CHANGE PASSWORD</button>
+          <button onclick="navigateTo('index.html')">LOGOUT</button>
+          <button onclick="navigateTo('broad-consent.html')">VIEW BROAD CONSENT</button>
+          <button onclick="navigateTo('privacy-notice.html')">VIEW DATA PRIVACY NOTICE</button>
+        </nav>
+      </aside>
+
+  <div class="main">
+    <h2>VIEW APPOINTMENTS</h2>
+    <div class="info-box">
+      <p>Pumili ng isang appointment na gustong kanselahin o i-request ng reschedule.<br><i>Select an appointment that you want to cancel or request for reschedule.</i></p>
+    </div>
+
+    <div class="tab-buttons">
+      <button class="active" onclick="showTab('upcoming')">Upcoming Appointments</button>
+      <button onclick="showTab('past')">Past Appointments</button>
+    </div>
+
+    <div id="upcoming" class="tab-content active">
+      <table>
+        <thead>
+          <tr>
+            <th>Appt Reference Number</th>
+            <th>Main Complaint</th>
+            <th>Date of Complaint</th>
+            <th>Remarks</th>
+            <th>Appointment Status</th>
+            <th>Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#07-02042025</td>
+            <td>Sick Check-up</td>
+            <td>February 4, 2025</td>
+            <td></td>
+            <td id="status-1">Pending</td>
+            <td><button class="cancel-btn" onclick="cancelAppointment(1)">Cancel</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="past" class="tab-content">
+      <table>
+        <thead>
+          <tr>
+            <th>Appt Reference Number</th>
+            <th>Main Complaint</th>
+            <th>Date of Complaint</th>
+            <th>Remarks</th>
+            <th>Appointment Status</th>
+            <th>Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#05-01012025</td>
+            <td>Flu Vaccine</td>
+            <td>January 1, 2025</td>
+                <td>Done</td>
+                <td>Completed</td>
+                <td>---</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+      <script>
+        function showTab(tabId) {
+          const buttons = document.querySelectorAll('.tab-buttons button');
+          const tabs = document.querySelectorAll('.tab-content');
+          buttons.forEach(btn => btn.classList.remove('active'));
+          tabs.forEach(tab => tab.classList.remove('active'));
+          document.getElementById(tabId).classList.add('active');
+          if(tabId === 'upcoming') buttons[0].classList.add('active');
+          else buttons[1].classList.add('active');
+        }
+    
+        function cancelAppointment(id) {
+          const statusCell = document.getElementById('status-${id}');
+          const button = event.target;
+          statusCell.textContent = 'Cancelled';
+          statusCell.classList.add('cancelled');
+          button.disabled = true;
+          button.textContent = 'Cancelled';
+        }
+
+    function navigateTo(page) {
+      window.location.href = page;
+    }
+
+    function logout() {
+      alert("Logging out...");
+      // Add logout logic here
+    }
+
+    function bookNow() {
+      alert("Redirecting to booking page...");
+      // Add booking logic here
+    }
+      function goToGeneralConcern() {
+        window.location.href = "general concern.html"; // Change this to your actual page
+      }
+      </script>
+    </body>
+    </html>
+
+   
